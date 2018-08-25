@@ -9,6 +9,8 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
 
+<!-- From turtlebot launch to enable specifying world file as command line argument  
+https://github.com/turtlebot/turtlebot_simulator/blob/indigo/turtlebot_gazebo/launch/turtlebot_world.launch-->
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="false"/>
