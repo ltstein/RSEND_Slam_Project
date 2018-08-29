@@ -10,12 +10,13 @@
   <arg name="debug" default="false"/>
 
 <!-- From turtlebot launch to enable specifying world file as command line argument  
-https://github.com/turtlebot/turtlebot_simulator/blob/indigo/turtlebot_gazebo/launch/turtlebot_world.launch-->
+https://github.com/turtlebot/turtlebot_simulator/blob/indigo/turtlebot_gazebo/launch/turtlebot_world.launch -->
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="false"/>
     <arg name="gui" value="$(arg gui)" />
-    <arg name="world_name" value="$(arg world_file)"/>
+    <!-- <arg name="world_name" default="worlds/empty.world"/>  -->
+    <arg name="world_name" value="$(arg world_file)"/> 
 </include>
   <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="$(arg paused)"/>
@@ -29,10 +30,6 @@ https://github.com/turtlebot/turtlebot_simulator/blob/indigo/turtlebot_gazebo/la
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
   output="screen" args="-urdf -param robot_description -model slam_bot"/>
-
-  <!--launch rviz-->
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
-
 
 
 </launch>
