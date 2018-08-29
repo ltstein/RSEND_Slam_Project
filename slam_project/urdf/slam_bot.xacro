@@ -210,7 +210,19 @@
     <child link="camera_link"/>
     <parent link="chassis"/>
   </joint>
+  
+  <!-- Added based on  https://answers.ros.org/question/232534/gazebo-camera-frame-is-inconsistent-with-rviz-opencv-convention/?answer=232562#post-id-232562-->
+  <joint name="camera_optical_joint" type="fixed">
+    <!-- these values have to be these values otherwise the gazebo camera
+        image won't be aligned properly with the frame it is supposedly
+        originating from -->
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    <parent link="camera_link"/>
+    <child link="camera_rgbd_frame"/>
+  </joint>
 
+  <link name="camera_rgbd_frame">
+  </link>
 
   <link name="hokuyo">
 
